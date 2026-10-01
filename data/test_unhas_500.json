@@ -1,0 +1,4006 @@
+{
+  "db_id": "neosia",
+  "total": 500,
+  "cases": [
+    {
+      "question": "Berapa total dosen aktif pada Fakultas Kedokteran Gigi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 1,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa orang kelas kuliah yang dibuka untuk mata kuliah Struktur Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 2,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berstatus Keluar pada Program Studi Teknik Sipil?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 3,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Kelas kuliah yang dibuka untuk mata kuliah Anatomi ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 4,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Ada berapa mahasiswa beragama Hindu pada Program Studi Manajemen?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 5,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Manajemen'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berstatus Lulus pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 6,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Berikan rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Hukum.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 7,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Tampilkan total kelas kuliah yang dibuka untuk mata kuliah Fisika Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 8,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Tampilkan total dosen aktif pada Fakultas Kedokteran.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 9,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND d.is_active = 1"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa angkatan 2020 pada Program Studi Sastra Indonesia.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 10,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Dosen aktif pada Program Studi Akuntansi berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 11,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi' AND d.is_active = 1"
+    },
+    {
+      "question": "Tampilkan rata-rata nilai akhir mahasiswa pada mata kuliah Kalkulus.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 12,
+      "gold_sql": "SELECT AVG(kna.nilai_angka) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2020 pada Program Studi Teknik Mesin?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 13,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Jumlah mahasiswa angkatan 2023 pada Program Studi Pendidikan Dokter ada berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 14,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Tampilkan total mahasiswa berstatus Lulus pada Program Studi Kimia.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 15,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Mahasiswa berstatus Drop Out pada Program Studi Akuntansi berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 16,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa aktif pada Fakultas Kedokteran Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 17,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND m.is_active = 1"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa beragama Kristen pada Program Studi Teknik Sipil.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 18,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Berapa total mahasiswa beragama Islam pada Program Studi Kimia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 19,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa berstatus Aktif?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 20,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'A'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa beragama Hindu pada Program Studi Teknik Sipil.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 21,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa yang KRS-nya belum disetujui pada Program Studi Teknik Elektro?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 22,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa yang KRS-nya belum disetujui pada Program Studi Teknik Sipil.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 23,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Berapa orang mahasiswa berjenis kelamin perempuan pada Program Studi Ilmu Gizi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 24,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa total mahasiswa beragama Islam berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 25,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Islam' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Informasikan jumlah dosen aktif pada Fakultas Pertanian.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 26,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Pertanian' AND d.is_active = 1"
+    },
+    {
+      "question": "Mahasiswa beragama Kristen ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 27,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Kristen'"
+    },
+    {
+      "question": "Mohon tampilkan mata kuliah pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 28,
+      "gold_sql": "SELECT mk.nama_resmi FROM mata_kuliah mk JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer'"
+    },
+    {
+      "question": "Dosen aktif pada Fakultas Kedokteran Gigi ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 29,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa banyak dosen aktif pada Fakultas Kedokteran?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 30,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2020 berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 31,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2020 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Informasikan jumlah dosen aktif pada Fakultas Ilmu Sosial dan Ilmu Politik.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 32,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Sosial dan Ilmu Politik' AND d.is_active = 1"
+    },
+    {
+      "question": "Jumlah mahasiswa dengan IPK kumulatif di bawah 3.25 ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 33,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif < 3.25"
+    },
+    {
+      "question": "Jumlah dosen aktif pada Fakultas Pertanian ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 34,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Pertanian' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa orang kelas kuliah yang dibuka untuk mata kuliah Basis Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 35,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa yang mendapat nilai C pada mata kuliah Kalkulus.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 36,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'C' AND mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa berjenis kelamin laki-laki pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 37,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa angkatan 2021 pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 38,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2020 pada Program Studi Teknik Elektro.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 39,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Ada berapa mahasiswa yang KRS-nya belum disetujui pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 40,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Gizi berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 41,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berstatus Drop Out pada Program Studi Manajemen.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 42,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Manajemen'"
+    },
+    {
+      "question": "Berikan rata-rata nilai akhir mahasiswa pada mata kuliah Fisika Dasar.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 43,
+      "gold_sql": "SELECT AVG(kna.nilai_angka) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa berstatus Keluar pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 44,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Berapa total mahasiswa yang KRS-nya belum disetujui pada Program Studi Ilmu Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 45,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Berapa orang kelas kuliah yang dibuka untuk mata kuliah Fisika Dasar?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 46,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Berapa orang dosen aktif pada Fakultas Matematika dan Ilmu Pengetahuan Alam?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 47,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Matematika dan Ilmu Pengetahuan Alam' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa orang mahasiswa berstatus Lulus?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 48,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'L'"
+    },
+    {
+      "question": "Mahasiswa angkatan 2022 berjenis kelamin laki-laki berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 49,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa dengan IP semester di atas 3.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 50,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.5"
+    },
+    {
+      "question": "Rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Komputer berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 51,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer'"
+    },
+    {
+      "question": "Informasikan jumlah dosen aktif pada Fakultas Kedokteran.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 52,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa banyak dosen aktif pada Fakultas Ekonomi dan Bisnis?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 53,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ekonomi dan Bisnis' AND d.is_active = 1"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa berstatus Drop Out pada Program Studi Ilmu Hukum.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 54,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa berstatus Lulus pada Program Studi Kimia.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 55,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Tolong berikan jumlah kelas kuliah yang dibuka untuk mata kuliah Struktur Data.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 56,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berstatus Aktif pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 57,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Mohon informasikan rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 58,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer'"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Fakultas Kedokteran?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 59,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa berstatus Keluar pada Program Studi Agroteknologi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 60,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa dengan IPK kumulatif di atas 2.5.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 61,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif > 2.5"
+    },
+    {
+      "question": "Jumlah dosen aktif pada Fakultas Ekonomi dan Bisnis ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 62,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ekonomi dan Bisnis' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa total mahasiswa berjenis kelamin laki-laki pada Program Studi Agroteknologi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 63,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mahasiswa dengan IP semester di bawah 3.25 berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 64,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.25"
+    },
+    {
+      "question": "Mohon informasikan jumlah SKS mata kuliah Dasar Pemrograman.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 65,
+      "gold_sql": "SELECT mjs.jumlah_sks FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk2 ON mjs.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Dasar Pemrograman'"
+    },
+    {
+      "question": "Berapa total mahasiswa dengan IP semester di atas 3.75?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 66,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.75"
+    },
+    {
+      "question": "Ada berapa mahasiswa berstatus Cuti pada Program Studi Pendidikan Dokter?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 67,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Berapa total mahasiswa aktif pada Fakultas Ilmu Sosial dan Ilmu Politik?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 68,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Sosial dan Ilmu Politik' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa banyak mahasiswa yang KRS-nya belum disetujui pada Program Studi Teknik Sipil?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 69,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Cuti pada Program Studi Teknik Elektro?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 70,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa angkatan 2021 pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 71,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter Gigi' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Mohon hitungkan jumlah dosen aktif pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 72,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa total dosen aktif pada Fakultas Ilmu Budaya?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 73,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Budaya' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa total mahasiswa aktif pada Program Studi Agroteknologi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 74,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND m.is_active = 1"
+    },
+    {
+      "question": "Berikan rata-rata indeks prestasi semester mahasiswa pada Program Studi Teknik Elektro.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 75,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_semester) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Ada berapa mahasiswa yang KRS-nya sudah disetujui pada Program Studi Pendidikan Dokter?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 76,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 1 AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa aktif pada Program Studi Pendidikan Dokter Gigi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 77,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter Gigi' AND m.is_active = 1"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa aktif pada Program Studi Matematika.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 78,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Matematika' AND m.is_active = 1"
+    },
+    {
+      "question": "Mahasiswa berjenis kelamin perempuan pada Fakultas Kesehatan Masyarakat berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 79,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Aktif pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 80,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Berikan rata-rata indeks prestasi semester mahasiswa pada Program Studi Sastra Indonesia.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 81,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_semester) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Ada berapa mahasiswa angkatan 2021 pada Program Studi Akuntansi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 82,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Daftar mata kuliah pada Program Studi Pendidikan Dokter apa saja?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 83,
+      "gold_sql": "SELECT mk.nama_resmi FROM mata_kuliah mk JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Mahasiswa aktif pada Fakultas Matematika dan Ilmu Pengetahuan Alam ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 84,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Matematika dan Ilmu Pengetahuan Alam' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa berjenis kelamin laki-laki pada Program Studi Pendidikan Dokter?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 85,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa aktif pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 86,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi' AND m.is_active = 1"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa beragama Hindu pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 87,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Ada berapa mahasiswa dengan IP semester di bawah 3.25?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 88,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.25"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa berjenis kelamin perempuan pada Fakultas Kesehatan Masyarakat.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 89,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2022 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 90,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berjenis kelamin laki-laki pada Fakultas Kesehatan Masyarakat.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 91,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Jumlah mahasiswa angkatan 2020 berjenis kelamin perempuan ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 92,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2020 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa angkatan 2023 pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 93,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Berapa besar rata-rata jumlah SKS mata kuliah pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 94,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa angkatan 2021 pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 95,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Rata-rata jumlah SKS mata kuliah pada Program Studi Fisika berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 96,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Fisika'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa berstatus Keluar pada Program Studi Ilmu Hukum.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 97,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Hitung rata-rata indeks prestasi semester mahasiswa pada Program Studi Sastra Indonesia.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 98,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_semester) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berstatus Lulus pada Program Studi Manajemen?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 99,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Manajemen'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa yang KRS-nya belum disetujui pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 100,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Mahasiswa berjenis kelamin perempuan pada Program Studi Matematika berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 101,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Matematika' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Hitung jumlah kelas kuliah yang dibuka untuk mata kuliah Dasar Pemrograman.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 102,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Dasar Pemrograman'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa aktif pada Fakultas Ilmu Budaya.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 103,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Budaya' AND m.is_active = 1"
+    },
+    {
+      "question": "Ada berapa kelas kuliah yang dibuka untuk mata kuliah Hukum Perdata?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 104,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Tampilkan total dosen aktif pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 105,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer' AND d.is_active = 1"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berjenis kelamin perempuan pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 106,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa aktif pada Fakultas Ekonomi dan Bisnis.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 107,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ekonomi dan Bisnis' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa banyak mahasiswa dengan IP semester di bawah 2.5?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 108,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 2.5"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Cuti pada Program Studi Akuntansi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 109,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Rata-rata jumlah SKS mata kuliah pada Program Studi Matematika berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 110,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Matematika'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa dengan IPK kumulatif di bawah 3.25.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 111,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif < 3.25"
+    },
+    {
+      "question": "Jumlah mahasiswa dengan IP semester di bawah 3.0 ada berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 112,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.0"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa dengan IP semester di atas 3.0.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 113,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.0"
+    },
+    {
+      "question": "Ada berapa mahasiswa aktif pada Program Studi Pendidikan Dokter?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 114,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.is_active = 1"
+    },
+    {
+      "question": "Ada berapa mahasiswa angkatan 2021 berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 115,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa beragama Islam pada Program Studi Fisika.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 116,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Fisika'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa yang KRS-nya belum disetujui pada Program Studi Teknik Sipil.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 117,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Ada berapa kelas kuliah yang dibuka untuk mata kuliah Fisika Dasar?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 118,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa berjenis kelamin laki-laki pada Fakultas Kedokteran Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 119,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Cuti pada Program Studi Kimia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 120,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Berapa total mahasiswa angkatan 2021 berjenis kelamin perempuan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 121,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa total mahasiswa beragama Hindu pada Program Studi Teknik Elektro?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 122,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berstatus Keluar pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 123,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa angkatan 2021 berjenis kelamin laki-laki.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 124,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mahasiswa berstatus Aktif pada Program Studi Matematika berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 125,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Matematika'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa beragama Islam pada Program Studi Teknik Mesin?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 126,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa yang mengambil mata kuliah Basis Data.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 127,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_has_mahasiswa khm JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2022?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 128,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022"
+    },
+    {
+      "question": "Informasikan jumlah dosen aktif pada Fakultas Ilmu Budaya.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 129,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Budaya' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa total kelas kuliah yang dibuka untuk mata kuliah Anatomi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 130,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa angkatan 2022 pada Program Studi Kimia.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 131,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Kimia' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Tampilkan rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 132,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa angkatan 2021 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 133,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa rata-rata IPK kumulatif mahasiswa pada Program Studi Ilmu Pemerintahan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 134,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_kumulatif) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2021 berjenis kelamin laki-laki.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 135,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa orang mahasiswa berjenis kelamin laki-laki pada Program Studi Manajemen?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 136,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Manajemen' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Ada berapa mahasiswa berjenis kelamin laki-laki pada Program Studi Agroteknologi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 137,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Ada berapa mahasiswa angkatan 2020?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 138,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2020"
+    },
+    {
+      "question": "Informasikan jumlah kelas kuliah yang dibuka untuk mata kuliah Kalkulus.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 139,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Hitung rata-rata IPK kumulatif mahasiswa pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 140,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_kumulatif) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2023 berjenis kelamin perempuan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 141,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2023 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa total mahasiswa dengan IP semester di bawah 3.25?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 142,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.25"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berjenis kelamin perempuan pada Program Studi Ilmu Hukum?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 143,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berjenis kelamin perempuan pada Fakultas Ilmu Sosial dan Ilmu Politik.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 144,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Sosial dan Ilmu Politik' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa angkatan 2021 pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 145,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa beragama Islam pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 146,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berjenis kelamin perempuan pada Program Studi Akuntansi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 147,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Mahasiswa angkatan 2022 berjenis kelamin laki-laki ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 148,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa berstatus Drop Out pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 149,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Dosen yang mengajar mata kuliah Struktur Data ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 150,
+      "gold_sql": "SELECT COUNT(DISTINCT khd.id_dosen) FROM kelas_kuliah_has_dosen khd JOIN kelas_kuliah kk ON khd.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Berapa orang mahasiswa angkatan 2020 pada Program Studi Teknik Elektro?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 151,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Mata kuliah pada Program Studi Teknik Mesin apa saja yang ada?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 152,
+      "gold_sql": "SELECT mk.nama_resmi FROM mata_kuliah mk JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Jumlah mahasiswa angkatan 2022 pada Program Studi Sastra Indonesia ada berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 153,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Tolong berikan jumlah dosen yang mengajar mata kuliah Fisika Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 154,
+      "gold_sql": "SELECT COUNT(DISTINCT khd.id_dosen) FROM kelas_kuliah_has_dosen khd JOIN kelas_kuliah kk ON khd.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Fakultas Ilmu Budaya?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 155,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Budaya' AND d.is_active = 1"
+    },
+    {
+      "question": "Tolong berikan jumlah dosen aktif pada Fakultas Kedokteran.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 156,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND d.is_active = 1"
+    },
+    {
+      "question": "Mahasiswa berjenis kelamin laki-laki pada Fakultas Kedokteran Gigi ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 157,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa beragama Hindu pada Program Studi Kimia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 158,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Berikan rata-rata jumlah SKS mata kuliah pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 159,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa berstatus Keluar pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 160,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa dengan IP semester di atas 2.75?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 161,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 2.75"
+    },
+    {
+      "question": "Berapa banyak mahasiswa beragama Kristen pada Program Studi Matematika?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 162,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Matematika'"
+    },
+    {
+      "question": "Coba hitung jumlah dosen aktif pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 163,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa total dosen aktif pada Program Studi Kimia?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 164,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Kimia' AND d.is_active = 1"
+    },
+    {
+      "question": "Tampilkan total mahasiswa berstatus Drop Out pada Program Studi Manajemen.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 165,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Manajemen'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa angkatan 2022 pada Program Studi Ilmu Hukum.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 166,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Mahasiswa beragama Hindu pada Program Studi Sastra Indonesia ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 167,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa yang mendapat nilai A pada mata kuliah Agronomi?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 168,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'A' AND mk2.nama_resmi = 'Agronomi'"
+    },
+    {
+      "question": "Mahasiswa berstatus Keluar pada Program Studi Akuntansi berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 169,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2020 pada Program Studi Manajemen.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 170,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Manajemen' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Kelas kuliah yang dibuka untuk mata kuliah Anatomi berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 171,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Tampilkan rata-rata jumlah SKS mata kuliah pada Program Studi Sastra Indonesia.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 172,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa beragama Hindu pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 173,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Jumlah SKS mata kuliah Hukum Perdata berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 174,
+      "gold_sql": "SELECT mjs.jumlah_sks FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk2 ON mjs.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Ada berapa kelas kuliah yang dibuka untuk mata kuliah Struktur Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 175,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Berapa orang mahasiswa yang mengambil mata kuliah Struktur Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 176,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_has_mahasiswa khm JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Mahasiswa angkatan 2023 pada Program Studi Ilmu Gizi berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 177,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Ada berapa mahasiswa berstatus Cuti pada Program Studi Agroteknologi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 178,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Berapa total mahasiswa yang mendapat nilai A pada mata kuliah Struktur Data?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 179,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'A' AND mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa dengan IP semester di bawah 3.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 180,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.5"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berstatus Drop Out pada Program Studi Ilmu Pemerintahan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 181,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Tolong berikan jumlah dosen yang mengajar mata kuliah Ilmu Gizi Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 182,
+      "gold_sql": "SELECT COUNT(DISTINCT khd.id_dosen) FROM kelas_kuliah_has_dosen khd JOIN kelas_kuliah kk ON khd.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Ilmu Gizi Dasar'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa dengan IP semester di bawah 3.5?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 183,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.5"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Program Studi Matematika?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 184,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Matematika' AND d.is_active = 1"
+    },
+    {
+      "question": "Jumlah dosen aktif pada Fakultas Kedokteran Gigi ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 185,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND d.is_active = 1"
+    },
+    {
+      "question": "Mahasiswa angkatan 2022 pada Program Studi Fisika ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 186,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2022 pada Program Studi Kimia?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 187,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Kimia' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Mahasiswa berstatus Cuti pada Program Studi Teknik Sipil ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 188,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa angkatan 2021 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 189,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Program Studi Teknik Elektro?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 190,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro' AND d.is_active = 1"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa beragama Kristen pada Program Studi Matematika.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 191,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Matematika'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa berstatus Drop Out pada Program Studi Teknik Sipil?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 192,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Hitung jumlah dosen aktif pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 193,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa orang mahasiswa berjenis kelamin laki-laki pada Program Studi Ilmu Pemerintahan?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 194,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Pemerintahan' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mahasiswa berjenis kelamin perempuan pada Program Studi Teknik Mesin berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 195,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Jumlah mahasiswa angkatan 2023 berjenis kelamin perempuan ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 196,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2023 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Tampilkan total dosen aktif pada Fakultas Kesehatan Masyarakat.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 197,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa beragama Hindu?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 198,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Hindu'"
+    },
+    {
+      "question": "Berikan rata-rata jumlah SKS mata kuliah pada Program Studi Matematika.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 199,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Matematika'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa aktif pada Program Studi Sastra Indonesia.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 200,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2023 pada Program Studi Pendidikan Dokter Gigi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 201,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter Gigi' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Tampilkan total mahasiswa aktif pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 202,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin' AND m.is_active = 1"
+    },
+    {
+      "question": "Tampilkan rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Hukum.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 203,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Dosen aktif pada Fakultas Ilmu Budaya ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 204,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Budaya' AND d.is_active = 1"
+    },
+    {
+      "question": "Jumlah mahasiswa berjenis kelamin laki-laki pada Program Studi Matematika ada berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 205,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Matematika' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mahasiswa angkatan 2020 pada Program Studi Teknik Elektro ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 206,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Mahasiswa yang mendapat nilai D pada mata kuliah Kalkulus ada berapa orang?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 207,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'D' AND mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2022 pada Program Studi Fisika.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 208,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Berapa orang mahasiswa yang mendapat nilai D pada mata kuliah Ilmu Gizi Dasar?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 209,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'D' AND mk2.nama_resmi = 'Ilmu Gizi Dasar'"
+    },
+    {
+      "question": "Jumlah mahasiswa dengan IP semester di bawah 2.5 ada berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 210,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 2.5"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa berstatus Aktif berjenis kelamin laki-laki.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 211,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'A' AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mahasiswa yang mendapat nilai A pada mata kuliah Basis Data berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 212,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'A' AND mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa beragama Islam berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 213,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Islam' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Jumlah dosen aktif pada Program Studi Ilmu Hukum ada berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 214,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa berstatus Aktif pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 215,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Mahasiswa aktif pada Program Studi Sastra Indonesia ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 216,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia' AND m.is_active = 1"
+    },
+    {
+      "question": "Rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Hukum berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 217,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa dengan IP semester di atas 3.75.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 218,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.75"
+    },
+    {
+      "question": "Berapa banyak mahasiswa dengan IP semester di atas 3.75?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 219,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.75"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berjenis kelamin perempuan pada Fakultas Matematika dan Ilmu Pengetahuan Alam.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 220,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Matematika dan Ilmu Pengetahuan Alam' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Jumlah dosen aktif pada Fakultas Matematika dan Ilmu Pengetahuan Alam ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 221,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Matematika dan Ilmu Pengetahuan Alam' AND d.is_active = 1"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa berstatus Cuti pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 222,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Ada berapa mahasiswa beragama Hindu berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 223,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Hindu' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berjenis kelamin laki-laki pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 224,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa beragama Hindu pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 225,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Berapa orang mahasiswa beragama Hindu pada Program Studi Teknik Sipil?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 226,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Berapa besar rata-rata jumlah SKS mata kuliah pada Program Studi Teknik Sipil?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 227,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa angkatan 2021 pada Program Studi Fisika?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 228,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Berapa orang kelas kuliah yang dibuka untuk mata kuliah Kalkulus?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 229,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa beragama Islam pada Program Studi Fisika?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 230,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Fisika'"
+    },
+    {
+      "question": "Jumlah mahasiswa berstatus Aktif berjenis kelamin perempuan ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 231,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'A' AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berjenis kelamin perempuan pada Fakultas Pertanian.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 232,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Pertanian' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah kelas kuliah yang dibuka untuk mata kuliah Anatomi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 233,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2022 pada Program Studi Teknik Sipil.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 234,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Sipil' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa aktif pada Fakultas Matematika dan Ilmu Pengetahuan Alam.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 235,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Matematika dan Ilmu Pengetahuan Alam' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa orang mahasiswa angkatan 2022 pada Program Studi Ilmu Pemerintahan?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 236,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Pemerintahan' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Mahasiswa beragama Hindu pada Program Studi Manajemen ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 237,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Manajemen'"
+    },
+    {
+      "question": "Berapa orang mahasiswa berjenis kelamin laki-laki pada Fakultas Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 238,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Hukum' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa angkatan 2022 pada Program Studi Fisika.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 239,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa berstatus Cuti pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 240,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa dengan IPK kumulatif di bawah 3.0.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 241,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif < 3.0"
+    },
+    {
+      "question": "Jumlah kelas kuliah yang dibuka untuk mata kuliah Basis Data ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 242,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Jumlah mahasiswa angkatan 2021 pada Program Studi Ilmu Hukum ada berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 243,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Berapa banyak kelas kuliah yang dibuka untuk mata kuliah Struktur Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 244,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Tampilkan total kelas kuliah yang dibuka untuk mata kuliah Agronomi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 245,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Agronomi'"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Fakultas Pertanian?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 246,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Pertanian' AND d.is_active = 1"
+    },
+    {
+      "question": "Dosen aktif pada Fakultas Kesehatan Masyarakat berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 247,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND d.is_active = 1"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa dengan IP semester di bawah 3.75.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 248,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.75"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa yang mengambil mata kuliah Ilmu Gizi Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 249,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_has_mahasiswa khm JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Ilmu Gizi Dasar'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa dengan IPK kumulatif di bawah 3.5?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 250,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif < 3.5"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa angkatan 2023 pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 251,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Berapa nilai rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Komputer?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 252,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer'"
+    },
+    {
+      "question": "Ada berapa dosen aktif pada Fakultas Kesehatan Masyarakat?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 253,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND d.is_active = 1"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa beragama Kristen pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 254,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Jumlah dosen aktif pada Fakultas Teknik ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 255,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Teknik' AND d.is_active = 1"
+    },
+    {
+      "question": "Dosen aktif pada Fakultas Kesehatan Masyarakat ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 256,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND d.is_active = 1"
+    },
+    {
+      "question": "Tampilkan rata-rata indeks prestasi semester mahasiswa pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 257,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_semester) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Mahasiswa aktif pada Program Studi Fisika berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 258,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.is_active = 1"
+    },
+    {
+      "question": "Berikan rata-rata jumlah SKS mata kuliah pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 259,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa angkatan 2021 pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 260,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Ada berapa mahasiswa angkatan 2023 pada Program Studi Manajemen?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 261,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Manajemen' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Berapa nilai rata-rata nilai akhir mahasiswa pada mata kuliah Struktur Data?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 262,
+      "gold_sql": "SELECT AVG(kna.nilai_angka) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Mahasiswa yang mendapat nilai D pada mata kuliah Hukum Perdata ada berapa orang?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 263,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'D' AND mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Berapa besar rata-rata jumlah SKS mata kuliah pada Program Studi Teknik Mesin?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 264,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berjenis kelamin laki-laki pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 265,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa dengan IP semester di atas 3.0.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 266,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.0"
+    },
+    {
+      "question": "Kelas kuliah yang dibuka untuk mata kuliah Manajemen Keuangan berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 267,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Manajemen Keuangan'"
+    },
+    {
+      "question": "Ada berapa dosen aktif pada Program Studi Matematika?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 268,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Matematika' AND d.is_active = 1"
+    },
+    {
+      "question": "Tampilkan total mahasiswa berjenis kelamin perempuan pada Program Studi Teknik Sipil.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 269,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Sipil' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa total mahasiswa yang KRS-nya belum disetujui pada Program Studi Teknik Elektro?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 270,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa berstatus Aktif pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 271,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa aktif pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 272,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa banyak mahasiswa angkatan 2023 pada Program Studi Pendidikan Dokter?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 273,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Coba hitung jumlah dosen aktif pada Fakultas Ilmu Budaya.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 274,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Budaya' AND d.is_active = 1"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa aktif pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 275,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin' AND m.is_active = 1"
+    },
+    {
+      "question": "Jumlah mahasiswa angkatan 2020 berjenis kelamin laki-laki ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 276,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2020 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa angkatan 2021 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 277,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa beragama Hindu pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 278,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah kelas kuliah yang dibuka untuk mata kuliah Ilmu Gizi Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 279,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Ilmu Gizi Dasar'"
+    },
+    {
+      "question": "Ada berapa mahasiswa berstatus Keluar pada Program Studi Ilmu Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 280,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Ada berapa mahasiswa beragama Kristen berjenis kelamin perempuan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 281,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Kristen' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa total mahasiswa yang mendapat nilai A pada mata kuliah Hukum Perdata?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 282,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'A' AND mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Berapa orang mahasiswa angkatan 2022?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 283,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa angkatan 2021 berjenis kelamin laki-laki.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 284,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa total mahasiswa berjenis kelamin perempuan pada Program Studi Teknik Sipil?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 285,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Sipil' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa beragama Islam pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 286,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa berjenis kelamin laki-laki pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 287,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berikan rata-rata jumlah SKS mata kuliah pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 288,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berstatus Cuti berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 289,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'C' AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Hitung rata-rata jumlah SKS mata kuliah pada Program Studi Kimia.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 290,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Berapa total kelas kuliah yang dibuka untuk mata kuliah Basis Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 291,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Mahasiswa yang mendapat nilai B pada mata kuliah Hukum Perdata berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 292,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'B' AND mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah kelas kuliah yang dibuka untuk mata kuliah Hukum Perdata.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 293,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Ada berapa kelas kuliah yang dibuka untuk mata kuliah Anatomi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 294,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Tampilkan rata-rata jumlah SKS mata kuliah pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 295,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa beragama Islam pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 296,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Hitung rata-rata jumlah SKS mata kuliah pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 297,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Mahasiswa beragama Islam pada Program Studi Teknik Elektro berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 298,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Rata-rata IPK kumulatif mahasiswa pada Program Studi Teknik Elektro berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 299,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_kumulatif) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Jumlah mahasiswa berstatus Aktif pada Program Studi Teknik Sipil ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 300,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Teknik Sipil'"
+    },
+    {
+      "question": "Tampilkan total dosen yang mengajar mata kuliah Kalkulus.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 301,
+      "gold_sql": "SELECT COUNT(DISTINCT khd.id_dosen) FROM kelas_kuliah_has_dosen khd JOIN kelas_kuliah kk ON khd.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Mahasiswa berstatus Keluar ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 302,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'K'"
+    },
+    {
+      "question": "Jumlah mahasiswa dengan IP semester di bawah 3.5 ada berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 303,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.5"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa yang KRS-nya belum disetujui pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 304,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Mahasiswa dengan IP semester di atas 2.5 ada berapa orang?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 305,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 2.5"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berjenis kelamin perempuan pada Program Studi Manajemen?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 306,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Manajemen' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Coba hitung jumlah dosen aktif pada Fakultas Kedokteran Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 307,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND d.is_active = 1"
+    },
+    {
+      "question": "Tampilkan total kelas kuliah yang dibuka untuk mata kuliah Kalkulus.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 308,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Berapa total kelas kuliah yang dibuka untuk mata kuliah Hukum Perdata?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 309,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa dengan IP semester di bawah 3.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 310,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.5"
+    },
+    {
+      "question": "Mahasiswa angkatan 2020 pada Program Studi Ilmu Hukum ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 311,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Hukum' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Informasikan jumlah kelas kuliah yang dibuka untuk mata kuliah Hukum Perdata.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 312,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Berapa orang mahasiswa yang KRS-nya sudah disetujui pada Program Studi Kimia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 313,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 1 AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Jumlah mahasiswa yang mendapat nilai A pada mata kuliah Dasar Pemrograman ada berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 314,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'A' AND mk2.nama_resmi = 'Dasar Pemrograman'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berstatus Keluar berjenis kelamin laki-laki.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 315,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'K' AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa yang mendapat nilai D pada mata kuliah Manajemen Keuangan?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 316,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'D' AND mk2.nama_resmi = 'Manajemen Keuangan'"
+    },
+    {
+      "question": "Jumlah mahasiswa berstatus Cuti pada Program Studi Kimia ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 317,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Fakultas Kedokteran Gigi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 318,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND d.is_active = 1"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa dengan IPK kumulatif di atas 3.5.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 319,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif > 3.5"
+    },
+    {
+      "question": "Tampilkan rata-rata jumlah SKS mata kuliah pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 320,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Mahasiswa berstatus Keluar pada Program Studi Fisika ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 321,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Fisika'"
+    },
+    {
+      "question": "Ada berapa mahasiswa yang KRS-nya belum disetujui pada Program Studi Ilmu Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 322,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa yang mengambil mata kuliah Anatomi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 323,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_has_mahasiswa khm JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa berstatus Cuti pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 324,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berstatus Aktif pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 325,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa aktif pada Program Studi Sastra Indonesia.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 326,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Lulus pada Program Studi Ilmu Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 327,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berjenis kelamin perempuan pada Fakultas Ekonomi dan Bisnis.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 328,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ekonomi dan Bisnis' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa banyak kelas kuliah yang dibuka untuk mata kuliah Fisika Dasar?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 329,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa dengan IP semester di bawah 3.25.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 330,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.25"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa aktif pada Fakultas Ilmu Sosial dan Ilmu Politik.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 331,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Sosial dan Ilmu Politik' AND m.is_active = 1"
+    },
+    {
+      "question": "Berapa total kelas kuliah yang dibuka untuk mata kuliah Fisika Dasar?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 332,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berstatus Aktif pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 333,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Berikan rata-rata jumlah SKS mata kuliah pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 334,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa aktif pada Program Studi Ilmu Gizi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 335,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Gizi' AND m.is_active = 1"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa angkatan 2023 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 336,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2023 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Tampilkan rata-rata IPK kumulatif mahasiswa pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 337,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_kumulatif) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa beragama Kristen pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 338,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Jumlah mahasiswa yang KRS-nya sudah disetujui pada Program Studi Pendidikan Dokter ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 339,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 1 AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa yang mendapat nilai D pada mata kuliah Fisika Dasar.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 340,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'D' AND mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Berapa jumlah kelas kuliah yang dibuka untuk mata kuliah Agronomi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 341,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Agronomi'"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Program Studi Pendidikan Dokter?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 342,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa banyak mahasiswa beragama Hindu berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 343,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Hindu' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa dengan IP semester di bawah 2.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 344,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 2.5"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa yang mendapat nilai B pada mata kuliah Fisika Dasar?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 345,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'B' AND mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Jumlah mahasiswa aktif pada Program Studi Teknik Elektro ada berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 346,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro' AND m.is_active = 1"
+    },
+    {
+      "question": "Mohon informasikan rata-rata indeks prestasi semester mahasiswa pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 347,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_semester) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Mahasiswa beragama Islam pada Program Studi Pendidikan Dokter Gigi ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 348,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa berjenis kelamin perempuan pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 349,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Rata-rata IPK kumulatif mahasiswa pada Program Studi Kimia berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 350,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_kumulatif) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Ada berapa kelas kuliah yang dibuka untuk mata kuliah Basis Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 351,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Mahasiswa berjenis kelamin perempuan pada Fakultas Ekonomi dan Bisnis ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 352,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ekonomi dan Bisnis' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa aktif pada Fakultas Kedokteran?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 353,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND m.is_active = 1"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa dengan IP semester di atas 3.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 354,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.5"
+    },
+    {
+      "question": "Coba hitung jumlah dosen aktif pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 355,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND d.is_active = 1"
+    },
+    {
+      "question": "Mahasiswa berstatus Cuti pada Program Studi Ilmu Pemerintahan ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 356,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berstatus Drop Out pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 357,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa dengan IPK kumulatif di atas 2.5.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 358,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif > 2.5"
+    },
+    {
+      "question": "Berapa total mahasiswa beragama Hindu pada Program Studi Kimia?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 359,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Ada berapa mahasiswa yang mendapat nilai B pada mata kuliah Kalkulus?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 360,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'B' AND mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa beragama Islam pada Program Studi Kimia.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 361,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Aktif pada Program Studi Teknik Elektro?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 362,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Tampilkan mata kuliah pada Program Studi Teknik Mesin.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 363,
+      "gold_sql": "SELECT mk.nama_resmi FROM mata_kuliah mk JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa berstatus Lulus pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 364,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berjenis kelamin perempuan pada Fakultas Kedokteran Gigi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 365,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran Gigi' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Mahasiswa berstatus Lulus pada Program Studi Akuntansi berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 366,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Akuntansi'"
+    },
+    {
+      "question": "Berapa orang mahasiswa dengan IP semester di atas 3.0?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 367,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.0"
+    },
+    {
+      "question": "Mahasiswa beragama Islam pada Program Studi Matematika berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 368,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Islam' AND p.nama_resmi = 'Matematika'"
+    },
+    {
+      "question": "Berapa nilai rata-rata jumlah SKS mata kuliah pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 369,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Berapa banyak dosen aktif pada Fakultas Pertanian?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 370,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Pertanian' AND d.is_active = 1"
+    },
+    {
+      "question": "Kelas kuliah yang dibuka untuk mata kuliah Manajemen Keuangan ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 371,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Manajemen Keuangan'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa aktif pada Fakultas Kedokteran.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 372,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND m.is_active = 1"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa beragama Islam berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 373,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Islam' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Jumlah mahasiswa angkatan 2021 berjenis kelamin perempuan ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 374,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Ada berapa mahasiswa berjenis kelamin laki-laki pada Fakultas Ekonomi dan Bisnis?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 375,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ekonomi dan Bisnis' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa dengan IP semester di bawah 3.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 376,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.5"
+    },
+    {
+      "question": "Mahasiswa angkatan 2021 pada Program Studi Teknik Mesin ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 377,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Mesin' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Berapa total mahasiswa yang mendapat nilai C pada mata kuliah Anatomi?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 378,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'C' AND mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Berapa total dosen aktif pada Fakultas Pertanian?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 379,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Pertanian' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa berjenis kelamin perempuan pada Program Studi Pendidikan Dokter Gigi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 380,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter Gigi' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa beragama Hindu pada Program Studi Teknik Mesin?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 381,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Teknik Mesin'"
+    },
+    {
+      "question": "Mahasiswa berstatus Lulus pada Program Studi Ilmu Pemerintahan berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 382,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Jumlah mahasiswa beragama Kristen pada Program Studi Ilmu Hukum ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 383,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2020 pada Program Studi Kimia.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 384,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Kimia' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Ada berapa mahasiswa angkatan 2022 pada Program Studi Agroteknologi?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 385,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Berapa banyak kelas kuliah yang dibuka untuk mata kuliah Ilmu Gizi Dasar?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 386,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Ilmu Gizi Dasar'"
+    },
+    {
+      "question": "Mahasiswa angkatan 2021 pada Program Studi Pendidikan Dokter berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 387,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.angkatan = 2021"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa beragama Hindu pada Program Studi Ilmu Gizi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 388,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Tampilkan rata-rata IPK kumulatif mahasiswa pada Program Studi Ilmu Pemerintahan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 389,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_kumulatif) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Mahasiswa yang mengambil mata kuliah Hukum Perdata ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 390,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_has_mahasiswa khm JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Jumlah dosen yang mengajar mata kuliah Agronomi ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 391,
+      "gold_sql": "SELECT COUNT(DISTINCT khd.id_dosen) FROM kelas_kuliah_has_dosen khd JOIN kelas_kuliah kk ON khd.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Agronomi'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah kelas kuliah yang dibuka untuk mata kuliah Fisika Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 392,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Mohon informasikan rata-rata indeks prestasi semester mahasiswa pada Program Studi Ilmu Pemerintahan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 393,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_semester) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Berapa total mahasiswa berjenis kelamin perempuan pada Fakultas Pertanian?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 394,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Pertanian' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa besar jumlah SKS mata kuliah Kalkulus?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 395,
+      "gold_sql": "SELECT mjs.jumlah_sks FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk2 ON mjs.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Kalkulus'"
+    },
+    {
+      "question": "Berapa orang mahasiswa berstatus Aktif pada Program Studi Pendidikan Dokter Gigi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 396,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Mahasiswa angkatan 2020 berjenis kelamin laki-laki ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 397,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2020 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah kelas kuliah yang dibuka untuk mata kuliah Struktur Data.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 398,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Ada berapa mahasiswa berjenis kelamin laki-laki pada Program Studi Ilmu Komputer?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 399,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa total mahasiswa angkatan 2020 berjenis kelamin perempuan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 400,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2020 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Dosen aktif pada Program Studi Manajemen ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 401,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Manajemen' AND d.is_active = 1"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa beragama Kristen pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 402,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Keluar pada Program Studi Ilmu Gizi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 403,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Ilmu Gizi'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa beragama Hindu pada Program Studi Ilmu Pemerintahan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 404,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa angkatan 2022 pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 405,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berstatus Aktif pada Program Studi Ilmu Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 406,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa yang mendapat nilai C pada mata kuliah Hukum Perdata?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 407,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'C' AND mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa dengan IP semester di bawah 2.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 408,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 2.5"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa angkatan 2020 pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 409,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter Gigi' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Tampilkan total mahasiswa yang mendapat nilai B pada mata kuliah Dasar Pemrograman.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 410,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'B' AND mk2.nama_resmi = 'Dasar Pemrograman'"
+    },
+    {
+      "question": "Tolong berikan jumlah dosen yang mengajar mata kuliah Basis Data.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 411,
+      "gold_sql": "SELECT COUNT(DISTINCT khd.id_dosen) FROM kelas_kuliah_has_dosen khd JOIN kelas_kuliah kk ON khd.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Berapa rata-rata indeks prestasi semester mahasiswa pada Program Studi Ilmu Pemerintahan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 412,
+      "gold_sql": "SELECT AVG(ip.indeks_prestasi_semester) FROM indeks_prestasi ip JOIN mahasiswa m ON ip.id_mahasiswa = m.id JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2022 berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 413,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa jumlah SKS mata kuliah Ilmu Gizi Dasar?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 414,
+      "gold_sql": "SELECT mjs.jumlah_sks FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk2 ON mjs.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Ilmu Gizi Dasar'"
+    },
+    {
+      "question": "Ada berapa mahasiswa angkatan 2022 berjenis kelamin perempuan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 415,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa orang kelas kuliah yang dibuka untuk mata kuliah Anatomi?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 416,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Anatomi'"
+    },
+    {
+      "question": "Ada berapa mahasiswa berjenis kelamin laki-laki pada Program Studi Fisika?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 417,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa dengan IP semester di atas 3.5.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 418,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.5"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa dengan IP semester di bawah 2.75.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 419,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 2.75"
+    },
+    {
+      "question": "Berapa rata-rata jumlah SKS mata kuliah pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 420,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Tampilkan jumlah SKS mata kuliah Struktur Data.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 421,
+      "gold_sql": "SELECT mjs.jumlah_sks FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk2 ON mjs.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa beragama Hindu pada Program Studi Ilmu Pemerintahan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 422,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah dosen aktif pada Fakultas Matematika dan Ilmu Pengetahuan Alam.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 423,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Matematika dan Ilmu Pengetahuan Alam' AND d.is_active = 1"
+    },
+    {
+      "question": "Dosen aktif pada Fakultas Ilmu Budaya berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 424,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ilmu Budaya' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa orang mahasiswa angkatan 2023 pada Program Studi Sastra Indonesia?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 425,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Mahasiswa berstatus Cuti pada Program Studi Kimia ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 426,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Mahasiswa berstatus Aktif pada Program Studi Ilmu Komputer berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 427,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Ilmu Komputer'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa angkatan 2023 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 428,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2023 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Ada berapa mahasiswa yang mengambil mata kuliah Fisika Dasar?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 429,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_has_mahasiswa khm JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Berapa jumlah dosen aktif pada Fakultas Ekonomi dan Bisnis?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 430,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Ekonomi dan Bisnis' AND d.is_active = 1"
+    },
+    {
+      "question": "Coba hitung jumlah dosen aktif pada Fakultas Kedokteran.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 431,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND d.is_active = 1"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa beragama Hindu pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 432,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Hindu' AND p.nama_resmi = 'Pendidikan Dokter Gigi'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah dosen aktif pada Fakultas Kedokteran.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 433,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND d.is_active = 1"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berjenis kelamin perempuan pada Program Studi Fisika.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 434,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Kelas kuliah yang dibuka untuk mata kuliah Struktur Data berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 435,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Struktur Data'"
+    },
+    {
+      "question": "Mahasiswa dengan IP semester di bawah 3.0 ada berapa orang?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 436,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.0"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa yang KRS-nya belum disetujui pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 437,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Ilmu Komputer'"
+    },
+    {
+      "question": "Mahasiswa berstatus Lulus pada Program Studi Kimia berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 438,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Kimia'"
+    },
+    {
+      "question": "Mahasiswa berstatus Drop Out berjenis kelamin laki-laki berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 439,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'D' AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Jumlah mahasiswa berjenis kelamin laki-laki pada Program Studi Fisika ada berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 440,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Fisika' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa berstatus Keluar pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 441,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Rata-rata jumlah SKS mata kuliah pada Program Studi Teknik Elektro berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 442,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Teknik Elektro'"
+    },
+    {
+      "question": "Mohon informasikan rata-rata jumlah SKS mata kuliah pada Program Studi Sastra Indonesia.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 443,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Sastra Indonesia'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berstatus Cuti berjenis kelamin perempuan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 444,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'C' AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Tolong berikan jumlah dosen aktif pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 445,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi' AND d.is_active = 1"
+    },
+    {
+      "question": "Jumlah mahasiswa berstatus Keluar pada Program Studi Fisika ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 446,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Fisika'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa yang KRS-nya belum disetujui pada Program Studi Ilmu Hukum.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 447,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 0 AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Berapa total mahasiswa yang KRS-nya sudah disetujui pada Program Studi Manajemen?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 448,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 1 AND p.nama_resmi = 'Manajemen'"
+    },
+    {
+      "question": "Berapa orang mahasiswa berstatus Drop Out pada Program Studi Matematika?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 449,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'D' AND p.nama_resmi = 'Matematika'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa dengan IP semester di bawah 3.75.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 450,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.75"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa yang mendapat nilai D pada mata kuliah Hukum Perdata.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 451,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'D' AND mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Kelas kuliah yang dibuka untuk mata kuliah Hukum Perdata berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 452,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa angkatan 2022 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 453,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2022 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa total mahasiswa berstatus Aktif pada Program Studi Ilmu Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 454,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Ilmu Hukum'"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa dengan IP semester di bawah 3.25.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 455,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.25"
+    },
+    {
+      "question": "Tampilkan total mahasiswa dengan IP semester di atas 3.25.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 456,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.25"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa angkatan 2021 berjenis kelamin laki-laki.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 457,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa nilai rata-rata jumlah SKS mata kuliah pada Program Studi Agroteknologi?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 458,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berstatus Lulus pada Program Studi Agroteknologi.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 459,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'L' AND p.nama_resmi = 'Agroteknologi'"
+    },
+    {
+      "question": "Ada berapa dosen aktif pada Program Studi Pendidikan Dokter?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 460,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND d.is_active = 1"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa berjenis kelamin perempuan pada Fakultas Kesehatan Masyarakat.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 461,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kesehatan Masyarakat' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa beragama Kristen pada Program Studi Ilmu Pemerintahan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 462,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id JOIN prodi p ON m.id_prodi = p.id WHERE a.nama = 'Kristen' AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berjenis kelamin laki-laki pada Program Studi Manajemen?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 463,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Manajemen' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Berapa orang mahasiswa dengan IPK kumulatif di bawah 3.5?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 464,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif < 3.5"
+    },
+    {
+      "question": "Mahasiswa dengan IPK kumulatif di bawah 2.75 ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 465,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_kumulatif < 2.75"
+    },
+    {
+      "question": "Mahasiswa dengan IP semester di atas 2.5 berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 466,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 2.5"
+    },
+    {
+      "question": "Hitung jumlah kelas kuliah yang dibuka untuk mata kuliah Hukum Perdata.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 467,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Hukum Perdata'"
+    },
+    {
+      "question": "Tampilkan rata-rata nilai akhir mahasiswa pada mata kuliah Dasar Pemrograman.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 468,
+      "gold_sql": "SELECT AVG(kna.nilai_angka) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Dasar Pemrograman'"
+    },
+    {
+      "question": "Ada berapa dosen aktif pada Fakultas Hukum?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 469,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Hukum' AND d.is_active = 1"
+    },
+    {
+      "question": "Berapa banyak mahasiswa berstatus Keluar pada Program Studi Fisika?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 470,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'K' AND p.nama_resmi = 'Fisika'"
+    },
+    {
+      "question": "Mahasiswa angkatan 2023 pada Program Studi Pendidikan Dokter ada berapa orang?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 471,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter' AND m.angkatan = 2023"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa berjenis kelamin perempuan pada Program Studi Pendidikan Dokter Gigi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 472,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Pendidikan Dokter Gigi' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa banyak kelas kuliah yang dibuka untuk mata kuliah Basis Data?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 473,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Tampilkan total mahasiswa angkatan 2020 pada Program Studi Matematika.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 474,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Matematika' AND m.angkatan = 2020"
+    },
+    {
+      "question": "Mahasiswa angkatan 2022 pada Program Studi Manajemen berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 475,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Manajemen' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Mohon hitungkan jumlah mahasiswa angkatan 2022 pada Program Studi Ilmu Pemerintahan.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 476,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Pemerintahan' AND m.angkatan = 2022"
+    },
+    {
+      "question": "Berapa orang kelas kuliah yang dibuka untuk mata kuliah Dasar Pemrograman?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 477,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Dasar Pemrograman'"
+    },
+    {
+      "question": "Jumlah mahasiswa beragama Islam berjenis kelamin laki-laki ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 478,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN agama a ON m.id_agama = a.id WHERE a.nama = 'Islam' AND m.jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Ada berapa dosen aktif pada Program Studi Ilmu Komputer?",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 479,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer' AND d.is_active = 1"
+    },
+    {
+      "question": "Mahasiswa dengan IP semester di atas 3.75 ada berapa orang?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 480,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.75"
+    },
+    {
+      "question": "Mahasiswa dengan IP semester di atas 3.0 berjumlah berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 481,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester > 3.0"
+    },
+    {
+      "question": "Tampilkan total dosen aktif pada Program Studi Akuntansi.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 482,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Akuntansi' AND d.is_active = 1"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa berjenis kelamin perempuan pada Fakultas Kedokteran.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 483,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id JOIN fakultas f ON p.id_fakultas = f.id WHERE f.nama_resmi = 'Fakultas Kedokteran' AND m.jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Tolong berikan jumlah kelas kuliah yang dibuka untuk mata kuliah Ilmu Gizi Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 484,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Ilmu Gizi Dasar'"
+    },
+    {
+      "question": "Jumlah mahasiswa dengan IP semester di bawah 3.75 ada berapa?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 485,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 3.75"
+    },
+    {
+      "question": "Tolong berikan jumlah kelas kuliah yang dibuka untuk mata kuliah Fisika Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 486,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Mahasiswa berstatus Aktif pada Program Studi Ilmu Pemerintahan ada berapa orang?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 487,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'A' AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Berapa banyak kelas kuliah yang dibuka untuk mata kuliah Manajemen Keuangan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 488,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Manajemen Keuangan'"
+    },
+    {
+      "question": "Tampilkan total dosen yang mengajar mata kuliah Fisika Dasar.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 489,
+      "gold_sql": "SELECT COUNT(DISTINCT khd.id_dosen) FROM kelas_kuliah_has_dosen khd JOIN kelas_kuliah kk ON khd.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Fisika Dasar'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa dengan IP semester di bawah 2.5?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 490,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 2.5"
+    },
+    {
+      "question": "Coba hitung jumlah mahasiswa angkatan 2021 berjenis kelamin perempuan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 491,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2021 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa dengan IP semester di bawah 2.75.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 492,
+      "gold_sql": "SELECT COUNT(*) FROM indeks_prestasi WHERE indeks_prestasi_semester < 2.75"
+    },
+    {
+      "question": "Tolong berikan jumlah mahasiswa berstatus Cuti pada Program Studi Pendidikan Dokter.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 493,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id WHERE m.kode_status = 'C' AND p.nama_resmi = 'Pendidikan Dokter'"
+    },
+    {
+      "question": "Informasikan jumlah mahasiswa yang mendapat nilai C pada mata kuliah Basis Data.",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 494,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah_nilai_akhir kna JOIN kelas_kuliah_has_mahasiswa khm ON kna.id_peserta_kelas = khm.id JOIN kelas_kuliah kk ON khm.id_kelas_kuliah = kk.id JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE kna.nilai_huruf = 'C' AND mk2.nama_resmi = 'Basis Data'"
+    },
+    {
+      "question": "Berapa jumlah mahasiswa angkatan 2020 berjenis kelamin perempuan?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 495,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE angkatan = 2020 AND jenis_kelamin = 'P'"
+    },
+    {
+      "question": "Berapa besar rata-rata jumlah SKS mata kuliah pada Program Studi Fisika?",
+      "evidence": "",
+      "difficulty": "hard",
+      "db_id": "neosia",
+      "id": 496,
+      "gold_sql": "SELECT AVG(mjs.jumlah_sks) FROM mata_kuliah_jumlah_sks mjs JOIN mata_kuliah mk ON mjs.id_mata_kuliah = mk.id JOIN prodi p ON mk.id_prodi = p.id WHERE p.nama_resmi = 'Fisika'"
+    },
+    {
+      "question": "Ada berapa mahasiswa berstatus Drop Out berjenis kelamin laki-laki?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 497,
+      "gold_sql": "SELECT COUNT(*) FROM mahasiswa WHERE kode_status = 'D' AND jenis_kelamin = 'L'"
+    },
+    {
+      "question": "Hitung jumlah mahasiswa yang KRS-nya sudah disetujui pada Program Studi Ilmu Pemerintahan.",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 498,
+      "gold_sql": "SELECT COUNT(*) FROM kartu_rencana_studi krs JOIN prodi_semester ps ON krs.id_prodi_semester = ps.id JOIN prodi p ON ps.id_prodi = p.id WHERE krs.is_approved = 1 AND p.nama_resmi = 'Ilmu Pemerintahan'"
+    },
+    {
+      "question": "Coba hitung jumlah dosen aktif pada Program Studi Ilmu Komputer.",
+      "evidence": "",
+      "difficulty": "easy",
+      "db_id": "neosia",
+      "id": 499,
+      "gold_sql": "SELECT COUNT(*) FROM dosen d JOIN prodi p ON d.id_prodi = p.id WHERE p.nama_resmi = 'Ilmu Komputer' AND d.is_active = 1"
+    },
+    {
+      "question": "Jumlah kelas kuliah yang dibuka untuk mata kuliah Manajemen Keuangan ada berapa?",
+      "evidence": "",
+      "difficulty": "medium",
+      "db_id": "neosia",
+      "id": 500,
+      "gold_sql": "SELECT COUNT(*) FROM kelas_kuliah kk JOIN mata_kuliah mk2 ON kk.id_mata_kuliah = mk2.id WHERE mk2.nama_resmi = 'Manajemen Keuangan'"
+    }
+  ]
+}

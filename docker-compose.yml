@@ -1,0 +1,73 @@
+services:
+  picard-noalias:
+    image: tscholak/text-to-sql-eval:6a252386bed6d4233f0f13f4562d8ae8608e7445
+    container_name: text2sql-noalias-picard-parser-8202
+    user: "0:0"
+    command: ["/app/.cabal/bin/picard"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import socket; s=socket.socket(); s.settimeout(2); s.connect(('127.0.0.1', 9090))\""]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+
+  baseline-noalias:
+    image: tscholak/text-to-sql-eval:6a252386bed6d4233f0f13f4562d8ae8608e7445
+    container_name: text2sql-noalias-baseline-8201
+    user: "13011:13011"
+    command: >-
+      sh -c "cp /app/src/* /app/seq2seq/;
+      python /app/src/patch_pipeline.py;
+      pip install -q -r /app/src/requirements.txt;
+      python /app/seq2seq/serve_seq2seq.py /app/configs/serve_baseline.json"
+    restart: unless-stopped
+    ports: ["8201:8000"]
+    volumes:
+      - ./checkpoints:/checkpoints:ro
+      - ./database:/database:ro
+      - ./configs:/app/configs:ro
+      - ./src:/app/src:ro
+
+  picard-api-noalias:
+    image: tscholak/text-to-sql-eval:6a252386bed6d4233f0f13f4562d8ae8608e7445
+    container_name: text2sql-noalias-picard-api-8202
+    user: "13011:13011"
+    command: >-
+      sh -c "cp /app/src/* /app/seq2seq/;
+      cp /app/src/picard_model_wrapper.py /app/seq2seq/utils/picard_model_wrapper.py;
+      python /app/src/patch_pipeline.py;
+      pip install -q -r /app/src/requirements.txt;
+      python /app/seq2seq/serve_seq2seq.py /app/configs/serve_picard.json"
+    restart: unless-stopped
+    depends_on:
+      picard-noalias:
+        condition: service_healthy
+    ports: ["8202:8000"]
+    volumes:
+      - ./checkpoints:/checkpoints:ro
+      - ./database:/database:ro
+      - ./configs:/app/configs:ro
+      - ./src:/app/src:ro
+
+  research-web:
+    image: tscholak/text-to-sql-eval:6a252386bed6d4233f0f13f4562d8ae8608e7445
+    container_name: text2sql-noalias-web-8300
+    user: "13011:13011"
+    command: ["python", "/app/web/app.py"]
+    restart: unless-stopped
+    depends_on:
+      baseline-noalias:
+        condition: service_started
+      picard-api-noalias:
+        condition: service_started
+    ports: ["8300:8300"]
+    environment:
+      BASELINE_URL: http://baseline-noalias:8000
+      PICARD_URL: http://picard-api-noalias:8000
+      EVALUATION_DIR: /app/results
+      REQUEST_TIMEOUT_S: "240"
+    volumes:
+      - ./web:/app/web:ro
+      - ./tokens.css:/app/tokens.css:ro
+      - ./results:/app/results:ro

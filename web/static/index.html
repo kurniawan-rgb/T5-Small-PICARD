@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Konsol penelitian untuk membandingkan decoding T5-small baseline dan T5-small dengan PICARD pada Text-to-SQL UNHAS." />
+    <title>SQL Decode Lab · UNHAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#uji">Lewati ke pengujian</a>
+
+    <header class="site-nav" aria-label="Navigasi utama">
+      <div class="site-nav__inner">
+        <a class="wordmark" href="#top" aria-label="SQL Decode Lab, kembali ke atas">
+          <span class="wordmark__mark" aria-hidden="true">&gt;_</span>
+          <span>SQL Decode Lab</span>
+        </a>
+        <nav class="site-nav__links" aria-label="Bagian halaman">
+          <a href="#uji">Uji model</a>
+          <a href="#arsitektur">Arsitektur</a>
+          <a href="#bukti">Bukti evaluasi</a>
+        </nav>
+        <button class="command-trigger" id="commandTrigger" type="button" aria-haspopup="dialog" aria-controls="commandDialog">
+          <span>Pilih contoh</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero page-shell" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="signal-line"><span aria-hidden="true"></span> T5-small · database Neosia</p>
+          <h1 id="hero-title">Satu prompt. Dua jalur decoding.</h1>
+          <p class="hero__lede">
+            Jalankan pertanyaan yang sama pada model baseline dan model yang sama dengan constrained decoding PICARD. Bandingkan SQL, hasil eksekusi, latency, perbedaan token akhir, dan kandidat token yang benar-benar ditolak parser.
+          </p>
+          <a class="text-link" href="#arsitektur">Lihat cara kerja decoder <span aria-hidden="true">↓</span></a>
+        </div>
+        <aside class="experiment-spec" aria-label="Konfigurasi eksperimen aktif">
+          <div class="experiment-spec__head">
+            <span>Eksperimen aktif</span>
+            <span class="live-state" id="globalHealth"><span aria-hidden="true"></span> Memeriksa server</span>
+          </div>
+          <dl>
+            <div><dt>Checkpoint</dt><dd>T5-small UNHAS</dd></div>
+            <div><dt>Baseline</dt><dd>Beam search · 2 beams</dd></div>
+            <div><dt>PICARD</dt><dd>parse_with_guards</dd></div>
+            <div><dt>Schedule</dt><dd>incremental · top-2</dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="test-bench" id="uji" aria-labelledby="test-title">
+        <div class="page-shell">
+          <header class="section-head">
+            <div>
+              <p class="section-context">Workbench</p>
+              <h2 id="test-title">Uji satu pertanyaan.</h2>
+            </div>
+            <p>Kedua request dikirim bersamaan. Hasil yang tampil berasal dari endpoint aktif, bukan simulasi di browser.</p>
+          </header>
+
+          <form class="query-form" id="queryForm" novalidate>
+            <div class="field">
+              <label for="question">Pertanyaan dalam bahasa Indonesia</label>
+              <textarea id="question" name="question" rows="3" maxlength="500" aria-describedby="questionHelp" aria-required="true" placeholder="Contoh: Berapa jumlah mahasiswa angkatan 2022?"></textarea>
+              <div class="field__meta">
+                <span id="questionHelp">Gunakan pertanyaan yang dapat dijawab dari skema Neosia.</span>
+                <span id="characterCount" aria-hidden="true">0 / 500</span>
+              </div>
+            </div>
+            <div class="query-form__actions">
+              <label class="database-field" for="database">
+                <span>Database</span>
+                <select id="database" name="database">
+                  <option value="neosia">neosia</option>
+                </select>
+              </label>
+              <button class="primary-button" id="runButton" type="submit">
+                <span class="primary-button__idle">Jalankan perbandingan</span>
+                <span class="primary-button__loading" aria-hidden="true">Decoder berjalan…</span>
+              </button>
+            </div>
+            <p class="long-wait-note" id="runStatus" role="status" aria-live="polite">Siap menerima pertanyaan.</p>
+          </form>
+
+          <div class="results" id="results" aria-live="polite" aria-busy="false">
+            <article class="result-panel" id="baselinePanel" data-state="empty">
+              <header class="result-panel__header">
+                <div>
+                  <p class="result-panel__kind">Kontrol</p>
+                  <h3>Baseline</h3>
+                </div>
+                <div class="result-meta">
+                  <span class="status-chip" data-role="status">Menunggu</span>
+                  <span data-role="latency">—</span>
+                </div>
+              </header>
+              <div class="result-panel__body" data-role="body">
+                <p class="empty-copy">SQL baseline akan tampil di sini setelah pengujian.</p>
+              </div>
+            </article>
+
+            <article class="result-panel result-panel--picard" id="picardPanel" data-state="empty">
+              <header class="result-panel__header">
+                <div>
+                  <p class="result-panel__kind">Constrained decoding</p>
+                  <h3>Baseline + PICARD</h3>
+                </div>
+                <div class="result-meta">
+                  <span class="status-chip" data-role="status">Menunggu</span>
+                  <span data-role="latency">—</span>
+                </div>
+              </header>
+              <div class="result-panel__body" data-role="body">
+                <p class="empty-copy">SQL dan trace parser PICARD akan tampil di sini.</p>
+              </div>
+            </article>
+          </div>
+
+          <section class="token-analysis" id="tokenAnalysis" hidden aria-labelledby="token-title">
+            <header class="subsection-head">
+              <div>
+                <h3 id="token-title">Perubahan token keluaran akhir</h3>
+                <p>Diff ini membandingkan dua SQL akhir. Ia bukan bukti token ditolak PICARD; bukti penolakan ditampilkan pada trace decoder di bawahnya.</p>
+              </div>
+              <div class="diff-legend" aria-label="Legenda diff">
+                <span><i class="legend-mark legend-mark--removed"></i> Hanya baseline</span>
+                <span><i class="legend-mark legend-mark--added"></i> Hanya PICARD</span>
+              </div>
+            </header>
+            <div class="token-rows" id="tokenRows"></div>
+          </section>
+
+          <section class="trace-panel" id="tracePanel" hidden aria-labelledby="trace-title">
+            <header class="subsection-head">
+              <div>
+                <h3 id="trace-title">Trace keputusan PICARD</h3>
+                <p>Setiap baris adalah kandidat top-k yang diperiksa parser saat decoding dan kemudian dimask dari distribusi token.</p>
+              </div>
+              <dl class="trace-summary" id="traceSummary"></dl>
+            </header>
+            <div class="trace-events" id="traceEvents"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="architecture" id="arsitektur" aria-labelledby="architecture-title">
+        <div class="page-shell">
+          <header class="section-head section-head--dark">
+            <div>
+              <p class="section-context">Decoder architecture</p>
+              <h2 id="architecture-title">Model sama. Aturan decoding berbeda.</h2>
+            </div>
+            <p>PICARD berada di loop decoding. Ia tidak mengedit SQL setelah generasi selesai.</p>
+          </header>
+
+          <div class="architecture-grid">
+            <article class="pipeline" aria-labelledby="baseline-flow-title">
+              <header><span class="pipeline__index">A</span><h3 id="baseline-flow-title">Baseline</h3></header>
+              <ol>
+                <li><span>Input</span><strong>Pertanyaan + skema</strong></li>
+                <li><span>Encoder</span><strong>T5-small UNHAS</strong></li>
+                <li><span>Decoder</span><strong>Logits → beam search</strong></li>
+                <li><span>Output</span><strong>SQL → SQLite</strong></li>
+              </ol>
+              <p class="pipeline__note">Decoder memilih token berdasarkan skor model tanpa validasi parser SQL pada setiap langkah.</p>
+            </article>
+
+            <article class="pipeline pipeline--picard" aria-labelledby="picard-flow-title">
+              <header><span class="pipeline__index">B</span><h3 id="picard-flow-title">Baseline + PICARD</h3></header>
+              <ol>
+                <li><span>Input</span><strong>Pertanyaan + skema</strong></li>
+                <li><span>Encoder</span><strong>T5-small yang sama</strong></li>
+                <li><span>Decoder</span><strong>Logits → kandidat top-2</strong></li>
+                <li class="guard-step"><span>PICARD guard</span><strong>Parser + skema menerima atau memask token</strong></li>
+                <li><span>Loop</span><strong>Beam melanjutkan token valid</strong></li>
+                <li><span>Output</span><strong>SQL → SQLite</strong></li>
+              </ol>
+              <p class="pipeline__note">Mode aktif: <code>parse_with_guards</code>, schedule <code>incremental</code>. Token yang ditolak diberi skor −∞ sebelum beam berikutnya.</p>
+            </article>
+          </div>
+
+          <div class="method-note">
+            <p class="method-note__title">Cara membaca hasil</p>
+            <p><strong>SQL berbeda</strong> menunjukkan dampak akhir decoding. <strong>Trace rejected</strong> menunjukkan intervensi langsung PICARD. SQL yang sama tidak otomatis berarti PICARD tidak aktif—parser bisa menerima kandidat yang sama pada seluruh langkah.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence page-shell" id="bukti" aria-labelledby="evidence-title">
+        <header class="section-head">
+          <div>
+            <p class="section-context">Evaluasi tersimpan</p>
+            <h2 id="evidence-title">Tiga beam. Kasus uji yang sama.</h2>
+          </div>
+          <p>Hasil 500 kasus per run diambil dari JSON evaluasi beam 1, 2, dan 4 di VM. Pilihan di bawah hanya mengubah tampilan hasil tersimpan; uji pertanyaan langsung di atas tetap memakai beam 2.</p>
+        </header>
+        <div class="beam-picker" id="beamPicker" role="group" aria-label="Pilih beam hasil evaluasi">
+          <button type="button" data-beam="1" aria-pressed="false">Beam 1</button>
+          <button type="button" data-beam="2" aria-pressed="false">Beam 2</button>
+          <button type="button" data-beam="4" aria-pressed="true">Beam 4</button>
+        </div>
+        <p class="evidence-source" id="evaluationSource" role="status">Memuat tiga berkas evaluasi…</p>
+        <div class="metric-strip" id="metricStrip" aria-live="polite">
+          <p>Memuat hasil evaluasi…</p>
+        </div>
+        <div class="evidence-detail">
+          <section aria-labelledby="paired-title">
+            <h3 id="paired-title">Perubahan berpasangan menurut EX</h3>
+            <div class="paired-grid" id="pairedGrid"></div>
+          </section>
+          <section aria-labelledby="difficulty-title">
+            <h3 id="difficulty-title">EX menurut tingkat kesulitan</h3>
+            <div class="difficulty-table" id="difficultyTable"></div>
+          </section>
+        </div>
+        <section class="beam-overview" aria-labelledby="overview-title">
+          <h3 id="overview-title">Seluruh skenario beam</h3>
+          <div class="overview-scroll"><table id="beamOverview">
+            <thead><tr><th scope="col">Beam</th><th scope="col">API success</th><th scope="col">EM</th><th scope="col">EX</th><th scope="col">Rerata latensi</th></tr></thead>
+            <tbody></tbody>
+          </table></div>
+          <p class="evidence-note">Setiap sel membandingkan baseline → PICARD dari 500 kasus. EX berarti hasil eksekusi sama pada satu snapshot SQLite, bukan bukti dua SQL setara secara semantik. Audit manual atas 21 kenaikan EX pada beam 4 menemukan 4 SQL cocok dengan acuan, 16 berbeda makna, dan 1 anotasi ambigu.</p>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell">
+        <p class="site-footer__statement">Bukan sekadar SQL akhir. Tunjukkan keputusan decoder.</p>
+        <div class="site-footer__meta">
+          <span class="wordmark"><span class="wordmark__mark" aria-hidden="true">&gt;_</span> SQL Decode Lab</span>
+          <span>T5-small UNHAS · baseline vs PICARD · 2026</span>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="command-dialog" id="commandDialog" aria-labelledby="command-title">
+      <form method="dialog" class="command-dialog__panel">
+        <div class="command-dialog__head">
+          <div>
+            <h2 id="command-title">Pilih contoh pengujian</h2>
+            <p>Pilih prompt atau lompat ke bagian metodologi.</p>
+          </div>
+          <button class="icon-button" value="close" aria-label="Tutup dialog">×</button>
+        </div>
+        <label class="command-search" for="commandSearch">
+          <span>Cari perintah</span>
+          <input id="commandSearch" type="search" autocomplete="off" placeholder="Cari prompt atau bagian…" />
+        </label>
+        <div class="command-list" id="commandList" role="listbox" aria-label="Daftar perintah"></div>
+        <div class="command-dialog__foot"><kbd>↑</kbd><kbd>↓</kbd> pilih · <kbd>Enter</kbd> buka · <kbd>Esc</kbd> tutup</div>
+      </form>
+    </dialog>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
