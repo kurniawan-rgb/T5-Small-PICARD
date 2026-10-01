@@ -15,7 +15,6 @@ tools/         evaluator paired/resumable
 web/           UI penelitian dan proxy same-origin
 data/          test case 50, 100, dan 500 pertanyaan
 results/       hasil evaluasi utama (50 kasus dan beam 1/2/4 pada 500 kasus)
-docs/          kontrak model dan catatan eksperimen
 checkpoints/   petunjuk penempatan checkpoint; bobot model tidak disertakan
 database/      petunjuk penempatan SQLite; database mentah tidak disertakan
 ```
@@ -29,8 +28,8 @@ Sebelum menjalankan layanan, tempatkan checkpoint yang kompatibel di
 `checkpoints/t5-small-unhas-picard-noalias-20260917/` dan database yang
 diizinkan untuk digunakan di `database/neosia/neosia.sqlite`. Jika nama
 direktori checkpoint berbeda, sesuaikan `model_path` pada kedua berkas
-`configs/serve_*.json`. Periksa pula kontrak pelatihan pada
-`docs/model_training_contract.json`.
+`configs/serve_*.json`. Pastikan model dan tokenizer berasal dari checkpoint
+yang sama.
 
 ## Menjalankan
 
