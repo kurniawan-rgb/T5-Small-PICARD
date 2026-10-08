@@ -24,9 +24,9 @@ dokumentasi penelitian. Bobot model, database mentah, backup web, log proses,
 PID, dan cache tidak diunggah. Database asli memiliki kolom data pribadi;
 jangan mempublikasikannya tanpa izin dan proses de-identifikasi yang sesuai.
 
-Sebelum menjalankan layanan, tempatkan checkpoint yang kompatibel di
-`checkpoints/t5-small-unhas-picard-noalias-20260917/` dan database yang
-diizinkan untuk digunakan di `database/neosia/neosia.sqlite`. Jika nama
+Sebelum menjalankan layanan, tempatkan model checkpoint yang kompatibel di
+`checkpoints/model_anda` dan database yang
+diizinkan untuk digunakan di `database/`. Jika nama
 direktori checkpoint berbeda, sesuaikan `model_path` pada kedua berkas
 `configs/serve_*.json`. Pastikan model dan tokenizer berasal dari checkpoint
 yang sama.
@@ -34,7 +34,6 @@ yang sama.
 ## Menjalankan
 
 ```bash
-cd /home/ubuntu/text2sql-picard-unhas
 docker compose -p text2sql_noalias_test up -d
 docker compose -p text2sql_noalias_test ps
 curl http://127.0.0.1:8201/dbs
@@ -44,13 +43,7 @@ curl http://127.0.0.1:8300/api/health
 
 ## Web pengujian
 
-Setelah `docker compose up -d`, buka web melalui SSH port forwarding:
-
-```bash
-gcloud compute ssh ubuntu@t5-sql-picard \
-  --zone=asia-southeast1-c \
-  -- -L 8300:127.0.0.1:8300
-```
+Setelah `docker compose up -d`, buka web melalui
 
 Lalu buka `http://127.0.0.1:8300` pada browser lokal. Web akan:
 
